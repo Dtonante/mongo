@@ -10,7 +10,7 @@ const getHurto = async(req, res) => {
 }
 
 const postHurto = async(req, res) => {
-    const datos = req.query //Capturar datos de la URL-postman
+    const datos = req.body //Capturar datos de la URL-postman
     let mensaje = 'Insercion exitosa'
     try {
         const hurto = new Hurto(datos) //Instanciar el objeto

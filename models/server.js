@@ -1,5 +1,7 @@
 const express = require('express')
-const cors = require('cors')
+const cors = require('cors') //implementar seguridad
+const bodyParser =require('body-parser') //convertit el objeto enviado desde el formulario
+
 const { dbConection } = require('../database/config')
 
 class Server{
@@ -19,8 +21,12 @@ class Server{
             } 
         )
     }
-    middlewares(){
+    middlewares(){//puentes entre el fronen y el bakent
         this.app.use(cors());
+        this.app.use(bodyParser.json);
+        this.app.use(cors());
+        this.app.use(cors());
+
     }
     routes(){
         this.app.use(this.usuarioPath, require('../routes/hurto'))
